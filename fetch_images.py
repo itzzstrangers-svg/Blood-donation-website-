@@ -73,8 +73,7 @@ def lookup(title):
     if not thumb:
         return None
 
-    # Ask for a larger version of the same picture.
-    thumb = re.sub(r"/(\d+)px-", f"/{IMAGE_WIDTH}px-", thumb)
+    # Keep the size Wikipedia gives (Wikimedia refuses non-standard sizes).
     page = ((info.get("content_urls") or {}).get("desktop") or {}).get("page", "")
     return thumb, page
 
